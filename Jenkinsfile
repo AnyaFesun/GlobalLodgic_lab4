@@ -14,6 +14,7 @@ pipeline {
         stage('Build') {
 			steps {
 				script {
+					// Компіляція та пакування проекту
 					sh 'mvn clean install -DskipTests'
                 }
             }
@@ -21,7 +22,14 @@ pipeline {
         stage('Test') {
 			steps {
 				script {
+					// Запуск тестів
 					sh 'mvn test'
+                }
+            }
+            post {
+				always {
+					// Збір результатів тестів у форматі JUnit
+                    junit '**/target/surefire-reports/*.xml'
                 }
             }
         }
