@@ -15,7 +15,7 @@ pipeline {
 			steps {
 				script {
 					// Компіляція  проекту
-					sh 'mvn install'
+					bat  'mvn install'
                 }
             }
         }
@@ -23,7 +23,7 @@ pipeline {
 			steps {
 				script {
 					// Запуск тестів
-					sh 'mvn test'
+					bat 'mvn test'
                 }
             }
             post {
