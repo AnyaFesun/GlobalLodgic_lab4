@@ -14,8 +14,8 @@ pipeline {
         stage('Build') {
 			steps {
 				script {
-					// Компіляція та пакування проекту
-					sh 'mvn clean install -DskipTests'
+					// Компіляція  проекту
+					sh 'mvn install'
                 }
             }
         }
